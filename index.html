@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<!-- <canvas id="meter" width="500" height="50"></canvas> -->
+	<form>
+		<select id = "noisetype" onchange= "func()">
+			<optgroup label= "Industrial area">
+				<option value = "1">Day time</option>
+				<option value = "2">Night time</option>
+			</optgroup>
+			<optgroup label= "Commercial area">
+				<option value = "3">Day time</option>
+				<option value = "4">Night time</option>
+			</optgroup>
+			<optgroup label= "Residential area">
+				<option value = "5">Day time</option>
+				<option value = "6">Night time</option>
+			</optgroup>
+			<optgroup label= "Silence Zone">
+				<option value = "7">Day time</option>
+				<option value = "8">Night time</option>
+			</optgroup>
+			<optgroup label="Vehicles">
+				<option value = "9">2 or 3 wheelers</option>
+				<option value = "10">Passenger Cars</option>
+				<option value = "11">Commercial Vehicles</option>
+			</optgroup>
+		</select>
+	</form>
+<p id ="as">No Noise</p>
+<p id ="as1">No</p>
+<script src="volume-meter.js"></script>
+<script src="main.js"></script>
+	</body>
+</html>

@@ -12,10 +12,13 @@ function geoFindMe() {
 
     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
 
-    //var img = new Image();
-    //img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-
-    //output.appendChild(img);
+    var url = 'https://api.breezometer.com/baqi/?lat=' + latitude + '&lon=' + longitude + '&key=4cb840a9331c4c8fa722f47aeb8f8477';
+            
+    $.getJSON(url, function(jd) {
+                  
+                  $('#out1').append('<p>Breezo Meter : ' + jd.breezometer_aqi+ '</p>');
+                  
+               });
   }
 
   function error() {
