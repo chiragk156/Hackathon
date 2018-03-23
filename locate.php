@@ -87,11 +87,19 @@
         width: 345px;
       }
     </style>
+    <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+      </script>
   </head>
   <body>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <p id="print-lat"></p>
         <p id="print-lng"></p>
+        <p id="print"></p>
+        <input type = "button" id = "driver" value = "Load Data" />
+        <div id = "stage" style = "background-color:#cc0;">
+         STAGE
+      </div>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
@@ -150,13 +158,44 @@
             var longitude = place.geometry.location.lng();
             document.getElementById("print-lat").innerHTML = latitude;
             document.getElementById("print-lng").innerHTML = longitude;
+            var url = 'https://api.breezometer.com/baqi/?lat=' + latitude + '&lon=' + longitude + '&key=4cb840a9331c4c8fa722f47aeb8f8477';
+            //loadJSON("https://api.breezometer.com/baqi/?lat=30.9645297&lon=76.4874021&key=4cb840a9331c4c8fa722f47aeb8f8477",gotData);
+//            getJSON('https://api.breezometer.com/baqi/?lat=30.9645297&lon=76.4874021&key=4cb840a9331c4c8fa722f47aeb8f8477',function(err, data) {
+$.getJSON(url, function(jd) {
+                  //$('#stage').html('<p> Name: ' + jd.country_name + '</p>');
+                  $('#stage').append('<p>Breezo Meter : ' + jd.breezometer_aqi+ '</p>');
+                  //$('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
+               });
             
           });
          // map.fitBounds(bounds);
         });
       }
+      
 
     </script>
+    
+    <script type = "text/javascript" language = "javascript">
+         $(document).ready(function() {
+			
+            $("#driver").click(function(event){
+               $.getJSON('https://api.breezometer.com/baqi/?lat=30.9645297&lon=76.4874021&key=4cb840a9331c4c8fa722f47aeb8f8477', function(jd) {
+                  $('#stage').html('<p> Name: ' + jd.country_name + '</p>');
+                  $('#stage').append('<p>Age : ' + jd.age+ '</p>');
+                  $('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
+               });
+            });
+				
+         });
+      </script>
+    
+    <script>
+fetch('http://time.jsontest.com')
+    .then(res => res.json())
+    .then((out) => {
+        console.log('Output: ', out);
+}).catch(err => console.error(err));
+</script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx8rbdbdD3VKDbWrY9o-7cmmIbw6c-35o&libraries=places&callback=initAutocomplete"         async defer></script>
   </body>
 </html>
