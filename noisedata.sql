@@ -1,5 +1,6 @@
 DROP SCHEMA IF EXISTS NoisePollution;
 CREATE SCHEMA NoisePollution;
+
 USE NoisePollution;
 
 CREATE TABLE NoiseData(
