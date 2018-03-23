@@ -1,6 +1,6 @@
 DROP SCHEMA IF EXISTS NoisePollution;
 CREATE SCHEMA NoisePollution;
-USE sakila;
+USE NoisePollution;
 
 CREATE TABLE NoiseData(
     Name VARCHAR(50),

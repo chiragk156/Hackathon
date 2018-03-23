@@ -1,4 +1,4 @@
-insert into LANDPOLLUTION values
+insert into NoiseData values
 	(gwalior, 81),
 	(allahabad, 86),
 	(patna, 86),
