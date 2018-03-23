@@ -96,7 +96,7 @@
     <p id="print-lat"></p>
         <p id="print-lng"></p>
         <p id="print"></p>
-        <input type = "button" id = "driver" value = "Load Data" />
+        
         <div id = "stage" style = "background-color:#cc0;">
          STAGE
       </div>
@@ -175,19 +175,7 @@ $.getJSON(url, function(jd) {
 
     </script>
     
-    <script type = "text/javascript" language = "javascript">
-         $(document).ready(function() {
-			
-            $("#driver").click(function(event){
-               $.getJSON('https://api.breezometer.com/baqi/?lat=30.9645297&lon=76.4874021&key=4cb840a9331c4c8fa722f47aeb8f8477', function(jd) {
-                  $('#stage').html('<p> Name: ' + jd.country_name + '</p>');
-                  $('#stage').append('<p>Age : ' + jd.age+ '</p>');
-                  $('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
-               });
-            });
-				
-         });
-      </script>
+    
     
     <script>
 fetch('http://time.jsontest.com')
