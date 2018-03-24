@@ -13,7 +13,7 @@ if($_POST['mode'] == "login"){
             session_start();
             $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $username;
-            header("Location: ../index.php");
+            header("Location: http://127.0.0.1/Hackathon/frontend/index.php");
         }else{
             //echo $password;
             //echo $row['password'];
@@ -58,7 +58,7 @@ if($_POST['mode'] == "login"){
                         session_start();
                         $_SESSION['username']=$username;
                         $_SESSION['id'] = mysqli_insert_id($con);
-                        header('location: ../index.php');
+                        header('location: http://127.0.0.1/Hackathon/frontend/index.php');
                     }
                 }
             }

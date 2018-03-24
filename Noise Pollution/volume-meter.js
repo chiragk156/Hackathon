@@ -70,8 +70,8 @@ if(opt.text == "Day time")
 		{
 			if(val>75)
 			{volumeContent.textContent = "Noise Pollution";
-		if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+		if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 		else
 			volumeContent.textContent = "No Noise";
 		}
@@ -80,8 +80,8 @@ if(opt.text == "Day time")
 		{
 			if(val>65)
 				{volumeContent.textContent = "Noise Pollution";
-			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 			else
 			volumeContent.textContent = "No Noise";
 		}
@@ -90,8 +90,8 @@ if(opt.text == "Day time")
 		{
 			if(val>55)
 				{volumeContent.textContent = "Noise Pollution";
-			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 			else
 			volumeContent.textContent = "No Noise";
 		}
@@ -101,8 +101,8 @@ if(opt.text == "Day time")
 			console.log(val);
 			if(val>50)
 				{volumeContent.textContent = "Noise Pollution";
-			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 			else
 			volumeContent.textContent = "No Noise";
 		}
@@ -114,38 +114,37 @@ if(opt.text == "Night time")
 		{
 			if(val>70)
 			{volumeContent.textContent = "Noise Pollution";
-		if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
-		else
-			volumeContent.textContent = "No Noise";
+		if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
+else
+volumeContent.textContent = "No Noise";
 		}
 	else
 		if(optgroup.label == "Commercial area")
 		{
 			if(val>55)
 				{volumeContent.textContent = "Noise Pollution";
-			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 			else
 			volumeContent.textContent = "No Noise";
 		}
-	else
-		if(optgroup.label == "Residential area")
+	else if(optgroup.label == "Residential area")
 		{
 			if(val>45)
 				{volumeContent.textContent = "Noise Pollution";
-			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 			else
 			volumeContent.textContent = "No Noise";
 		}
 	else
 		if(optgroup.label == "Silence Zone")
 		{
-			if(val>40)
+			if(val>10)
 				{volumeContent.textContent = "Noise Pollution";
-			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+			if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 			else
 			volumeContent.textContent = "No Noise";
 		}
@@ -155,8 +154,8 @@ if(opt.text == "2 or 3 wheelers")
 {
 	if(val>80)
 		{volumeContent.textContent = "Noise Pollution";
-	if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+	if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 	else
 			volumeContent.textContent = "No Noise";
 }
@@ -165,8 +164,8 @@ if(opt.text == "Passenger Cars")
 {
 	if(val>82)
 		{volumeContent.textContent = "Noise Pollution";
-	if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+	if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 	else
 			volumeContent.textContent = "No Noise";
 }
@@ -175,8 +174,8 @@ if(opt.text == "Commercial Vehicles")
 {
 	if(val>87)
 		{volumeContent.textContent = "Noise Pollution";
-	if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://www.google.ca'))
-  location.href='http://www.google.ca/';}
+	if(window.prompt('Noise Pollution level reached. Do you wish to visit the following website?','http://cpcb.nic.in/query-form.php'))
+  location.href='http://cpcb.nic.in/query-form.php';}
 	else
 			volumeContent.textContent = "No Noise";
 }

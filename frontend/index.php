@@ -1,3 +1,9 @@
+<?php session_start(); 
+$con = mysqli_connect("localhost","root","12qwaszx","pollution") or die(mysqli_error($con));
+if(isset($_SESSION['id']))
+header("Location: ../index.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +28,49 @@
     <!-- Responsive CSS -->
     <link href="css/responsive/responsive.css" rel="stylesheet">
 
+   
     <script type = "text/javascript" 
          src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
       </script>
+          <script type="text/javascript">
+        function geoFindMe() {
+  var output = document.getElementById("location");
+
+  if (!navigator.geolocation){
+    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+    return;
+  }
+
+  function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    //output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
+    var url = 'https://api.breezometer.com/baqi/?lat=' + latitude + '&lon=' + longitude + '&key=4cb840a9331c4c8fa722f47aeb8f8477';
+            
+    $.getJSON(url, function(jd) {
+                  //$('#stage').html('<p> Name: ' + jd.country_name + '</p>');
+                  $('#stag').html('<p>AQI: ' + jd.breezometer_aqi+ '</p>');
+                  //$('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
+                  if(jd.breezometer_aqi < 30){
+        $("#air").css('background-color', 'red');
+    }
+    else if(jd.breezometer_aqi < 60 && jd.breezometer_aqi > 30){
+        $("#air").css('background-color', 'orange');
+    }
+    else{
+        $("#air").css('background-color', 'green');
+    }
+
+               });
+
+ } 
+  //output.innerHTML = "<p>Locating…</p>";
+
+  navigator.geolocation.getCurrentPosition(success);
+}
+    </script>
 
     <style type="text/css">
         p
@@ -94,6 +140,7 @@
             
             var latitude = place.geometry.location.lat();
             var longitude = place.geometry.location.lng();
+            var m = '<?php echo "<h1>ljhsdkfjhefgdgf</h1>";?>';
             //document.getElementById("print-lat").innerHTML = latitude;
             //document.getElementById("print-lng").innerHTML = longitude;
             var url = 'https://api.breezometer.com/baqi/?lat=' + latitude + '&lon=' + longitude + '&key=4cb840a9331c4c8fa722f47aeb8f8477';
@@ -101,7 +148,7 @@
 //            getJSON('https://api.breezometer.com/baqi/?lat=30.9645297&lon=76.4874021&key=4cb840a9331c4c8fa722f47aeb8f8477',function(err, data) {
 $.getJSON(url, function(jd) {
                   //$('#stage').html('<p> Name: ' + jd.country_name + '</p>');
-                  $('#stag').html('<p>Breezo Meter : ' + jd.breezometer_aqi+ '</p>');
+                  $('#stag').html('<p>AQI: ' + jd.breezometer_aqi+ '</p>');
                   //$('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
                   if(jd.breezometer_aqi < 30){
         $("#air").css('background-color', 'red');
@@ -157,10 +204,10 @@ $.getJSON(url, function(jd) {
                         <div class="collapse navbar-collapse" id="dorneNav">
                             <ul class="navbar-nav mr-auto" id="dorneMenu">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Complaint</a>
+                                    <a class="nav-link dropdown-toggle" href="http://cpcb.nic.in/query-form.php" id="navbarDropdown" >Complaint</a>
                                     
                                 </li>
                                 
@@ -207,12 +254,10 @@ $.getJSON(url, function(jd) {
                         <!-- Tabs Content -->
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                                
-                                <form action="#" method="get">
                                     
-                                    <input type="text" id="cityname" style="width:30%;margin-left:10%;" placeholder="  Enter any location">
-                                    <button type="submit" class="btn dorne-btn" style="width:30%; margin-left:20%;"> Current Location</button>
-                                </form>
+                                    <input type="text" id="cityname" name="cn" style="width:30%;margin-left:10%;" placeholder="  Enter any location">
+                                    <button onclick="geoFindMe()" id="location" type="submit" class="btn dorne-btn" style="width:30%; margin-left:20%;"> Current Location</button>
+                                
                             </div>
                             
                         </div>
@@ -220,6 +265,7 @@ $.getJSON(url, function(jd) {
                 </div>
             </div>
         </div>
+
         
     </section>
     <!-- ***** Welcome Area End ***** -->
@@ -238,7 +284,7 @@ $.getJSON(url, function(jd) {
                                 <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.6s" id="air">
                                     <div class="catagory-content">
                                         <div id="stag"></div>
-                                        <a href="#">
+                                        <a href="../Air pollution/index.html">
                                             <h6>Air Pollution</h6>
                                         </a>
                                     </div>
@@ -249,7 +295,7 @@ $.getJSON(url, function(jd) {
                                 <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.8s" id="noise">
                                     <div class="catagory-content">
                                         
-                                        <a href="#">
+                                        <a href="../Noise Pollution/index.html">
                                             <h6>Noise pollution</h6>
                                         </a>
                                     </div>
@@ -259,7 +305,7 @@ $.getJSON(url, function(jd) {
                             <div class="col-12 col-md">
                                 <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="1s" id="land">
                                     <div class="catagory-content">
-                                        <a href="#">
+                                        <a href="../Land pollution/index.html">
                                             <h6>Land pollution</h6>
                                         </a>
                                     </div>
@@ -465,6 +511,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="js/active.js"></script>
+ 
 </body>
 
 </html>

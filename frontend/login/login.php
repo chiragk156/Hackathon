@@ -1,7 +1,7 @@
 <?php session_start(); 
 $con = mysqli_connect("localhost","root","12qwaszx","pollution") or die(mysqli_error($con));
 if(isset($_SESSION['id']))
-header("Location: ../index.php")
+header("Location: http://127.0.0.1/Hackathon/frontend/index.php")
 ?>
 
 
